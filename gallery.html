@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zig-Zag Gallery</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .row:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            flex: 1;
+            max-width: 30%;
+            min-width: 200px;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+            height: 400px;
+        }
+
+        .image-container:hover {
+            transform: scale(1.02);
+            box-shadow: #4a90e2 0px 20px 30px -10px;
+            cursor: zoom-in;
+        }
+
+        .image-container img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-container:hover img {
+            transform: rotate(2deg) scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/SHIATS_LOGO (1).png" alt="Left Logo">
+        </div>
+        <h4>Sam Higginbottom University of Agriculture, Technology & Sciences <br> Naini, Prayagraj, Uttar Pradesh, India - 211007</h4>
+        <h1>OUR PREVIOUS EVENTS</h1>
+        <div class="logo">
+            <img src="" alt="">
+        </div>  
+    </header>
+    <div class="gallery">
+        <div class="row">
+            <div class="image-container"><img src="./gallery/FDP.jpeg" alt="Gallery Image 1"></div>
+            <div class="image-container"><img src="./gallery/FDP1.jpeg" alt="Gallery Image 2"></div>
+            <div class="image-container"><img src="./gallery/FDP10.jpeg" alt="Gallery Image 3"></div>
+            <div class="image-container"><img src="./gallery/FDP5.jpeg" alt="Gallery Image 3"></div>
+            <div class="image-container"><img src="./gallery/FDP6.jpeg" alt="Gallery Image 3"></div>
+            <div class="image-container"><img src="./gallery/FDP7.jpeg" alt="Gallery Image 3"></div>
+            <div class="image-container"><img src="./gallery/FDP8.jpeg" alt="Gallery Image 3"></div>
+            <div class="image-container"><img src="./gallery/FDP9.jpeg" alt="Gallery Image 3"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit.jpeg" alt="Gallery Image 3"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit1.jpeg" alt="Gallery Image 3"></div>
+        </div>
+        <div class="row">
+            <div class="image-container"><img src="./gallery/FDP13.jpeg" alt="Gallery Image 4"></div>
+            <div class="image-container"><img src="./gallery/FDP14.jpeg" alt="Gallery Image 5"></div>
+            <div class="image-container"><img src="./gallery/FDP2.jpeg" alt="Gallery Image 6"></div>
+        </div>
+        <div class="row">
+            <div class="image-container"><img src="./gallery/FDP3.jpeg" alt="Gallery Image 7"></div>
+            <div class="image-container"><img src="./gallery/FDP4.jpeg" alt="Gallery Image 8"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit10.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit11.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit12.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit14.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit15.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit16.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit17.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit18.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit19.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit2.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit20.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit21.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit3.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit4.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit5.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit6.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit7.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit8.jpeg" alt="Gallery Image 9"></div>
+            <div class="image-container"><img src="./gallery/Int. Summit9.jpeg" alt="Gallery Image 9"></div>
+        </div>
+    </div>
+    <!-- 🔹 Modal for Image Lightbox -->
+<div id="imageModal" class="modal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+
+<script src="./js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1249 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fefdfd;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Section */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2091e7;
+}
+
+header .logo img {
+    width: 100px;
+    height: auto;
+}
+
+/* Enhanced H1 Styling */
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800; /* Extra bold */
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    position: relative;
+    background: linear-gradient(
+        45deg,
+        #ffffff 0%,
+        #0ab6f0 50%,
+        #e0edfc 100%
+    );
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        4px 4px 16px rgba(123, 105, 238, 0.4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: gradientText 4s ease infinite,
+               fadeInUp 0.8s ease forwards;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        #7b69ee,
+        #4a90e2
+    );
+    border-radius: 2px;
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 0 8px rgba(123, 105, 238, 0.3);
+}
+
+/* Add gradient animation */
+@keyframes gradientText {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Registration Button Styling */
+.registration-btn-container {
+    position: relative;
+}
+
+.registration-btn {
+    background: linear-gradient(135deg, #ff4e50 0%, #f95c23 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(255, 78, 80, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.registration-btn i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.registration-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(255, 78, 80, 0.4);
+    background: linear-gradient(135deg, #ff6b6d 0%, #fad83d 100%);
+}
+.registration-btn:hover i {
+    transform: scale(1.1);
+}
+
+/* Speaker Grid */
+.speakers {
+    padding: 40px 20px;
+    perspective: 1000px;
+    background-color: rgb(255, 252, 254);
+}
+
+.speaker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Dotted texture and hover effects */
+.speaker {
+    background-color: #52489c;
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.15) 1px,
+        transparent 1px
+    );
+    background-size: 10px 10px;
+    background-position: 0 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glow effect for dots on hover */
+.speaker::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.3) 1px,
+        transparent 1px
+    );
+    background-size: 10px 10px;
+    background-position: 0 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.speaker:hover::after {
+    opacity: 1;
+    animation: glowPulse 2s infinite;
+}
+
+/* Glow pulse animation */
+@keyframes glowPulse {
+    0% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.5);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+
+/* Ensure content stays above the texture */
+.speaker > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Keep existing hover effects */
+.speaker:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Modern hover effect */
+.speaker:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Glow effect on hover */
+.speaker::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.speaker:hover::before {
+    transform: translateX(100%);
+}
+
+/* Enhanced image animation */
+.speaker img {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    filter: grayscale(20%);
+}
+
+.speaker:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+    border-color: #00ff88;
+}
+
+/* Enhanced text animation */
+.speaker h2 {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.speaker:hover h2 {
+    transform: translateY(-5px);
+    color: #00ff88;
+}
+
+.speaker p {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.speaker:hover p {
+    transform: translateY(-3px);
+}
+
+/* General Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add a slight delay for each speaker */
+.speaker:nth-child(1) { animation-delay: 0.4s; }
+.speaker:nth-child(2) { animation-delay: 0.4s; }
+.speaker:nth-child(3) { animation-delay: 0.4s; }
+.speaker:nth-child(4) { animation-delay: 0.4s; }
+.speaker:nth-child(5) { animation-delay: 0.4s; }
+.speaker:nth-child(6) { animation-delay: 0.4s; }
+
+/* Speaker image flip effect */
+.speaker img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid yellow;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+.speaker:hover img {
+    transform: rotateY(180deg);
+}
+
+/* Text Zoom Effect on Hover */
+.speaker h2 {
+    font-size: 18px;
+    margin-top: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.speaker:hover h2 {
+    transform: scale(1.1);
+}
+
+/* Parallax Effect for Speaker Containers */
+.speaker-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    perspective: 1000px;
+}
+
+.speaker {
+    background: #52489c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-out;
+    transform: translateY(0px); /* This will be updated dynamically with JS */
+}
+
+/* Apply Parallax Scroll Effect */
+.parallax {
+    transform: translateY(50px);
+    transition: transform 0.9s ease-out;
+}
+
+/* Other Effects (Fade-in, Flip, Zoom) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.speaker img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid yellow;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+.speaker:hover img {
+    transform: rotateY(180deg);
+}
+
+.speaker h2 {
+    font-size: 18px;
+    margin-top: 10px;
+    transition: transform 0.9s ease-in-out;
+}
+
+.speaker:hover h2 {
+    transform: scale(1.1);
+}
+
+/* Speaker Grid */
+.speakers {
+    padding: 40px 20px;
+    perspective: 1000px; /* Add perspective for 3D effect */
+}
+
+.speaker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.speaker {
+    background: #08024e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+    transition: transform 0.3s ease-out;
+}
+
+/* Add hover effect for parallax */
+.speaker:hover {
+    transform: translateZ(50px) rotateX(5deg);
+}
+
+/* Event Brochure Section */
+.event-brochure {
+    background: linear-gradient(
+        135deg,
+        rgba(82, 72, 156, 0.9) 0%,
+        rgba(64, 56, 124, 0.95) 100%
+    );
+    margin: 2.5rem auto;
+    padding: 0.5rem;
+    max-width: 1000px;
+    border-radius: 20px;
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.96);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+/* Standalone Disclaimer */
+.disclaimer {
+    font-size: 0.9rem;
+    text-decoration: solid;
+    text-shadow: #08024e;
+    color: #21dde7;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid rgb(255, 217, 0);
+    border-radius: 8px;
+    background: rgb(95, 6, 184);
+    max-width: 1000px;
+}
+
+.event-details {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-item i {
+    color: #ffd700;
+}
+
+/* Download button and link styles */
+.brochure-download {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    background: #ffd700;
+    color: #52489c;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn:hover {
+    background: transparent;
+    color: #ffd700;
+    border-color: #ffd700;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.download-btn i {
+    transition: transform 0.3s ease;
+}
+
+.download-btn:hover i {
+    transform: translateY(2px);
+}
+
+/* PDF link style */
+.pdf-link {
+    color: #ffd700;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.pdf-link:hover {
+    color: #ffffff;
+}
+
+.pdf-link::after {
+    content: '(PDF)';
+    font-size: 0.8em;
+    margin-left: 4px;
+    opacity: 0.8;
+}
+
+/* File size badge */
+.file-size {
+    background: rgba(255, 215, 0, 0.2);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    margin-left: 8px;
+    color: #ffd700;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #1a1a2e;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(26, 26, 46, 0.95) 0%,
+        rgba(22, 33, 62, 0.85) 100%
+    );
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1200px;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.hero-tagline {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #fff, #7b69ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: #e9ecef;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #7b69ee 0%, #6548e8 100%);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(123, 105, 238, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(123, 105, 238, 0.4);
+    background: linear-gradient(135deg, #8878f0 0%, #7055ec 100%);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Digital Countdown Timer */
+.digital-countdown {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem auto;
+    max-width: 600px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease 0.4s forwards;
+}
+
+.digital-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Digital-7', monospace;
+    font-size: 3rem;
+    color: #7b69ee;
+    text-shadow: 0 0 20px rgba(123, 105, 238, 0.5);
+    letter-spacing: 2px;
+}
+
+.digital-time span {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.digital-time .colon {
+    padding: 0 0.3rem;
+    background: none;
+    min-width: auto;
+    animation: blinkColon 1s infinite;
+}
+
+.digital-labels {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.8rem;
+    color: #e9ecef;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.digital-labels span {
+    min-width: 80px;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+@keyframes blinkColon {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@font-face {
+    font-family: 'Digital-7';
+    src: url('path-to-your-digital-font.woff2') format('woff2');
+    /* You can use a fallback digital font or get Digital-7 font */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-tagline {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+    }
+
+    .countdown-title {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .countdown {
+        gap: 1rem;
+    }
+
+    .countdown-item {
+        min-width: 90px;
+        padding: 1rem;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+    }
+
+    .digital-time {
+        font-size: 2.5rem;
+    }
+    
+    .digital-time span {
+        min-width: 70px;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .digital-labels span {
+        min-width: 70px;
+        font-size: 0.8rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        letter-spacing: -0.5px;
+        text-shadow: 
+            1px 1px 3px rgba(0, 0, 0, 0.3),
+            2px 2px 8px rgba(123, 105, 238, 0.4);
+    }
+
+    h1::after {
+        width: 80px;
+        height: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .digital-time {
+        font-size: 2rem;
+    }
+    
+    .digital-time span {
+        min-width: 50px;
+        padding: 0.2rem 0.3rem;
+    }
+    
+    .digital-labels span {
+        min-width: 50px;
+        font-size: 0.7rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        text-shadow: 
+            1px 1px 2px rgba(0, 0, 0, 0.3),
+            1px 1px 6px rgba(123, 105, 238, 0.4);
+    }
+
+    h1::after {
+        width: 60px;
+    }
+}
+
+/* Parallax base styles */
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+}
+
+/* Hero Section Parallax */
+.hero-diagonal-1 {
+    transform: translateZ(-1px) scale(2);
+    transform-origin: center;
+    transition: transform 0.1s ease-out;
+}
+
+.hero-diagonal-2 {
+    transform: translateZ(-2px) scale(2.2);
+    transform-origin: center;
+    transition: transform 0.1s ease-out;
+}
+
+/* Speaker Grid Parallax */
+.speaker {
+    transform: translateY(var(--parallax-speed, 0));
+    transition: transform 0.1s ease-out;
+}
+
+/* Event Brochure Parallax */
+.event-brochure {
+    transform: translateY(var(--parallax-speed, 0));
+    transition: transform 0.1s ease-out;
+}
+
+/* Add perspective to main container */
+.main-container {
+    perspective: 1px;
+    perspective-origin: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Event Brochure Actions */
+.brochure-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Keep buttons in horizontal line */
+    flex-direction: row;
+    gap: 3.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Button containers */
+.brochure-download,
+.registration-btn-container {
+    margin: 0.5rem;
+    /* Prevent wrapping */
+    flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .brochure-actions {
+        /* Keep horizontal even on mobile */
+        flex-direction: row;
+        /* Adjust gap for smaller screens */
+        gap: 2rem;
+        /* Allow scrolling if needed */
+        overflow-x: auto;
+        padding: 0.5rem;
+    }
+
+    .brochure-download,
+    .registration-btn-container {
+        /* Keep buttons side by side */
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .brochure-actions {
+        gap: 1.5rem;
+    }
+}
+
+/* Smooth Transition */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Gallery */
+.gallery-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #7b69ee 0%, #6548e8 100%);
+    color: white;
+}
+
+.gallery-title {
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.gallery-preview {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.gallery-preview img {
+    width: 260px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 5px solid #fff;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.gallery-preview img:hover {
+    transform: scale(1.12) rotate(2deg);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-button {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 1.3em;
+    background: #ffcc00;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.gallery-button:hover {
+    background: #ffdb4d;
+    transform: scale(1.1);
+}
+
+
+/* Speakers Section Title */
+.speakers h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    color: #e20ccc;
+    position: relative;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    background: linear-gradient(
+        45deg,
+        #1a1a2e 0%,
+        #7b69ee 50%,
+        #4a90e2 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        4px 4px 16px rgba(123, 105, 238, 0.4);
+}
+
+.speakers h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        #7b69ee,
+        #4a90e2
+    );
+    border-radius: 2px;
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 0 8px rgba(123, 105, 238, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .speakers h3 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .speakers h3::after {
+        width: 80px;
+        height: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .speakers h3 {
+        font-size: 1.75rem;
+    }
+
+    .speakers h3::after {
+        width: 60px;
+    }
+}
+
+/* Footer Styles */
+.site-footer {
+        background-color: #08024e;
+    color: #f7f5f5;
+    padding: 0.08pm 0; /* Decreased top and bottom padding */
+    margin-top: 1.5rem; /* Decreased margin-top */
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Decreased padding */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem; /* Adjusted gap */
+}
+
+/* Basic Information Section */
+.footer-section {
+    margin-bottom: 1rem;
+    justify-content: center; /* Decreased margin-bottom */
+}
+
+.footer-section h4 {
+    font-size: 1.25rem; /* Decreased font size */
+    font-weight: 600;
+    margin-bottom: 0.5rem; /* Decreased margin-bottom */
+    color: #ffd700;
+    position: relative;
+    padding-bottom: 0.5rem;
+    justify-content: center;
+    margin-left: 0%;
+}
+
+.event-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem; /* Decreased font size */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.event-title>i{
+    text-align: center;
+
+}
+.event-subtitle {
+    color: #e9ecef;
+    font-size: 0.9rem; /* Decreased font size */
+    margin-bottom: 1rem; /* Decreased margin-bottom */
+    justify-content: center;
+}
+
+.organizer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: left; /* Decreased gap */
+}
+
+.info-item {
+    margin-bottom: 1rem; /* Space between each info item */
+    color: #e9ecef; /* Text color */
+}
+
+.info-item strong {
+    color: #ffd700; /* Accent color for titles */
+}
+
+.info-item i {
+    color: #ffd700;
+    width: 24px;
+    text-align: center;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.15rem 0; /* Decreased padding */
+    margin-top: 1rem; /* Decreased margin-top */
+    text-align: center;
+    font-size: 0.8rem; /* Decreased font size */
+    color: #e9ecef;
+}
+
+/* Icon Styles */
+.site-footer i {
+    font-size: 1.2rem;
+}
+
+/* Hover Effects */
+.info-item:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover i {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1rem; /* Adjusted gap */
+        padding: 0 1rem; /* Decreased padding */
+    }
+
+    .footer-section h4 {
+        font-size: 1.1rem; /* Decreased font size */
+    }
+
+    .event-title {
+        font-size: 0.9rem; /* Decreased font size */
+    }
+
+    .event-subtitle {
+        font-size: 0.8rem; /* Decreased font size */
+        padding-left: 28px;
+    }
+
+    .info-item {
+        font-size: 0.8rem; /* Decreased font size */
+    }
+}
+
+/* Animation for footer elements */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-section {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Optional: Add a subtle pattern overlay */
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px
+    );
+    background-size: 20px 20px;
+    pointer-events: none;
+} 
+
+nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+}
+
+nav>a{
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+/* Contact Information Grid */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-between; /* Space items evenly */
+    gap: 2rem; /* Space between items */
+}
+
+/* Individual Contact Item */
+.contact-item {
+    flex: 1 1 calc(30% - 1rem); /* Adjust width and allow for spacing */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.contact-item img {
+    width: 100px; /* Set a fixed width for images */
+    height: 100px; /* Set a fixed height for images */
+    border-radius: 50%; /* Circular images */
+    margin-bottom: 1rem; /* Space below the image */
+    border: 4px solid aquamarine; /* Aquamarine border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact-item {
+        flex: 1 1 calc(45% - 1rem); /* Adjust width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-item {
+        flex: 1 1 100%; /* Full width on very small screens */
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff4444;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
